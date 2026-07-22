@@ -27,7 +27,7 @@ module.exports = async function handler(req, res) {
     // Approved email domains that can self-register
     const APPROVED_DOMAINS = ['stanleyst.nz', 'culture.nz', 'hustleandbustle.co.nz', 'waitapugroup.nz'];
     const emailDomain = email.split('@')[1] || '';
-    const isApprovedDomain = APPROVED_DOMAINS.includes(emailDomain);
+    const isApprovedDomain = APPROVED_DOMAINS.includes(emailDomain) || email === 'madpineapple.ai@gmail.com';
 
     // After the first user, only admins or approved-domain emails can register
     if (!isFirstUser && !isApprovedDomain) {
@@ -38,8 +38,16 @@ module.exports = async function handler(req, res) {
     if (users.find(u => u.email === email)) { res.status(409).json({ error: 'An account with this email already exists.' }); return; }
 
     const allowed = ['viewer','cs','res'];
-    const isSuperAdmin = email === 'rachel.bullen@stanleyst.nz';
-    const role = isSuperAdmin ? 'admin' : (allowed.includes(body.role) ? body.role : 'viewer');
+    const csEmails = ['barbara.andrew@waitapugroup.nz','elizabeth.beatty@stanleyst.nz','jules.calnan@waitapugroup.nz','maria.hodgson@stanleyst.nz','pooja@hustleandbustle.co.nz','ryan.newton@culture.nz','peter.dean@waitapugroup.nz','sarah.brinck@culture.nz','siobhan.vassell@stanleyst.nz','trina.miller@stanleyst.nz','freya@hustleandbustle.co.nz'];
+    
+    const isSuperAdmin = email === 'rachel.bullen@stanleyst.nz' || email === 'madpineapple.ai@gmail.com';
+    const isAutoCS = csEmails.includes(email);
+    
+    let role = 'viewer';
+    if (isSuperAdmin) role = 'admin';
+    else if (isAutoCS) role = 'cs';
+    else if (allowed.includes(body.role)) role = body.role;
+    
     const hash = await hashPassword(password);
     const newUser = { email, name, role, hash, createdAt: new Date().toISOString() };
     users.push(newUser);

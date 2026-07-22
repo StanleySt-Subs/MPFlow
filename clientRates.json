@@ -1,5 +1,22 @@
 {
   "STANDARD RATES": {
+    "Junior Designer": 120,
+    "Intermediate Designer": 160,
+    "Senior Designer": 200,
+    "Head of Design": 220,
+    
+    "Junior Editor": 125,
+    "Intermediate Editor": 150,
+    "Senior Editor": 190,
+    "Head of Production": 190,
+    
+    "Junior Client Service": 100,
+    "Intermediate Client Service": 120,
+    "Senior Client Service": 160,
+    "Group Business Director": 250,
+    
+    "Print Manager": 150,
+    
     "Account Dire": 160,
     "Account Exec": 120,
     "Account Mana": 120,
@@ -104,7 +121,19 @@
     "Senior Producer": 200,
     "Studio Hire": 600,
     "Van Hire": 120,
-    "Videographer": 175
+    "Videographer": 175,
+    "Martin Brown FREELANCE": 115,
+    "Peter Vegas FREELANCE": 125,
+    "Bob Moore FREELANCE": 120,
+    "Tommy Eu FREELANCE": 100,
+    "Georgia Skiffington FREELANCE": 85,
+    "Brent Courtney FREELANCE": 130,
+    "Dan Spataru FREELANCE": 75,
+    "Marc Streeter FREELANCE": 65,
+    "Martin Spencer FREELANCE": 100,
+    "Takanori Kawamoto FREELANCE": 62.5,
+    "Treyjano Leydet FREELANCE": 80,
+    "Jon Cooper FREELANCE": 0
   },
   "AdWorks Limited": {
     "Account Dire": 160,

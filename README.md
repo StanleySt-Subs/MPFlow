@@ -1,4 +1,4 @@
-# MP Flow — V26 · Email Login & Role-Based Access
+# SS Flow — V26 · Email Login & Role-Based Access
 
 Open the link, sign in to the planner. Data is backed by Vercel Blob storage.
 
